@@ -1,0 +1,61 @@
+body{
+    background-color: #BBBBBB;
+}
+.comment {
+    position: relative;
+    margin: 0 0 70px;
+
+    background-color: #f6f5f5;
+    margin: 25px;
+}
+
+.comment-avatar {
+    position: relative;
+    float: left;
+    z-index: 1;
+}
+
+.comment-avatar > img {
+    border-radius: 50%;
+    margin: 5px;
+    height: 60px;
+    width: 60px;
+    margin-left: 20px;
+}
+
+.comment-content {
+    padding-top: 10px;
+    position: relative;
+    margin: 0 0 0 80px;
+}
+.comment-content .comment-meta {
+    list-style: none;
+    font-size: 12px;
+    margin: 0 0 10px;
+    padding: 0;
+}
+
+.comment-content .comment-meta > li {
+    display: inline-block;
+}
+
+.comment-content .comment-meta > li > a {
+    color: #464646;
+}
+
+.comment-content .comment-meta > li > a:hover,
+.comment-content .comment-meta > li > a:focus {
+    color: #c78f53;
+}
+
+.nombre_usuario{
+    font-size: 1.2em;
+    color: #f1632a;
+}
+.nombre_usuario:hover{
+    text-decoration: none;
+    color: #464646;
+}
+body{
+    background-color: red;
+}

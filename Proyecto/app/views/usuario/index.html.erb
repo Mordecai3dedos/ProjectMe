@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+  <h2>Listado de proyectos</h2>
+
+
+    <% posts = Post.all%>
+    <% for proyecto in posts %>
+      <div class="row"></div>
+      <div class="comment">
+        <div class="comment-avatar"><img src="http://neomax.mycookroom.ru/assets/images/avatar/1.jpg" alt=""/></div>
+        <div class="comment-content">
+          <a href="#" class="nombre_usuario">Soy <%= proyecto.user.username%> <%= proyecto.participantes.inspect%> </a>
+          <a href=""><%= link_to "Purchase", { :controller => :posts, :action => :insertar_participante } %></a>
+          <ul class="comment-meta">
+            <li class="derecha"><%= proyecto.created_at.to_formatted_s(:short)%></li>
+            <li><a href="#">Ver más.</a></li>
+          </ul>
+          <p><%= proyecto.contenido%></p>
+        </div>
+      </div>
+
+    <%end%>
+</div>
+
+
+</body>
+</html>

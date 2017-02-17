@@ -21,7 +21,7 @@ end
 
   def insertar_participante
       @usuario_insertado = current_user.username
-      @post_a_insertar = Post.find(18)
+      @post_a_insertar = Post.find(17)
       @array_participantes[] = @post_a_insertar.participantes
       @array_participantes << @usuario_insertado
       @post_a_insertar.participantes

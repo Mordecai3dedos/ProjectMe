@@ -6,13 +6,47 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-usuario1 = Usuario.new
-usuario1.usuario_nombre="David"
-usuario1.usuario_nombre_usuario="Mordecai3dedos"
-usuario1.save!
 
-Entrada.create(entrada_texto: 'Este proyecto es super importante para mi, consiste en pegarme un tiro en las muelas y
-que nadie se de cuenta porque soy un cacas y hago un grado superior, de hecho, quiero hacer muchas cosas, adios', usuario: usuario1)
+perfil1 = Perfile.new
+perfil1.nombre_perfil_de_informatico="Programador BBDD"
+perfil1.save!
 
-Post.create(contenido: 'Este proyecto es super importante para mi, consiste en pegarme un tiro en las muelas y
-que nadie se de cuenta porque soy un cacas y hago un grado superior, de hecho, quiero hacer muchas cosas, adios', user_id: 4)
+perfil2 = Perfile.new
+perfil2.nombre_perfil_de_informatico="Marketing"
+perfil2.save!
+
+perfil3 = Perfile.new
+perfil3.nombre_perfil_de_informatico="Maquetador Web"
+perfil3.save!
+
+perfil4 = Perfile.new
+perfil4.nombre_perfil_de_informatico="Experto SEO"
+perfil4.save!
+
+perfil5 = Perfile.new
+perfil5.nombre_perfil_de_informatico="Programador Backend"
+perfil5.save!
+
+perfil6 = Perfile.new
+perfil6.nombre_perfil_de_informatico="Desarrollador Android"
+perfil6.save!
+
+perfil7 = Perfile.new
+perfil7.nombre_perfil_de_informatico="Desarrollador iOS"
+perfil7.save!
+
+perfil8 = Perfile.new
+perfil8.nombre_perfil_de_informatico="Desarrollador de Videojuegos"
+perfil8.save!
+
+perfil9 = Perfile.new
+perfil9.nombre_perfil_de_informatico="Desarrollador de Sistemas"
+perfil9.save!
+
+perfil10 = Perfile.new
+perfil10.nombre_perfil_de_informatico="Diseñador Grafico"
+perfil10.save!
+
+perfil11 = Perfile.new
+perfil11.nombre_perfil_de_informatico="Web Master"
+perfil11.save!

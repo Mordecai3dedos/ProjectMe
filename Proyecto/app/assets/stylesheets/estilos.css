@@ -4,10 +4,25 @@ body{
 .comment {
     position: relative;
     margin: 0 0 70px;
-
-    background-color: #f6f5f5;
+    border: 2px solid;
+    border-color: white ;
+    border-bottom: 1px solid ;
+    border-bottom-color: #BBBBBB;
     margin: 25px;
 }
+.comment:hover{
+    border: 2px solid;
+    border-color: #3399cc;
+    border-radius: 2px;
+
+}
+.titulo{
+   color: black;
+}
+.titulo:hover{
+    color: black;
+}
+
 
 .comment-avatar {
     position: relative;
@@ -18,14 +33,15 @@ body{
 .comment-avatar > img {
     border-radius: 50%;
     margin: 5px;
-    height: 60px;
-    width: 60px;
-    margin-left: 20px;
+    height: 70px;
+    width: 70px;
+    margin-left: 5px;
 }
 
 .comment-content {
     padding-top: 10px;
     position: relative;
+    padding: 10px;
     margin: 0 0 0 80px;
 }
 .comment-content .comment-meta {
@@ -47,11 +63,10 @@ body{
 .comment-content .comment-meta > li > a:focus {
     color: #c78f53;
 }
-
-.nombre_usuario{
-    font-size: 1.2em;
+button:hover{
     color: #f1632a;
 }
+
 .nombre_usuario:hover{
     text-decoration: none;
     color: #464646;

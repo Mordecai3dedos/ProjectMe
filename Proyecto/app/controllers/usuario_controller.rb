@@ -1,4 +1,6 @@
+
 class UsuarioController < ApplicationController
+
   def index
     @posts = Post.all
     @newPost = Post.new
@@ -11,4 +13,5 @@ class UsuarioController < ApplicationController
     @posts = Post.all
     @newPost = Post.new
   end
+
 end

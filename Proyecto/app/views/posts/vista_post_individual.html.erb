@@ -19,39 +19,32 @@
 <body>
 
 <div class="container">
-  <h2>Listado de proyectos</h2>
+  <h2><%= @post.titulo%>, de <%= @post.user.username%></h2>
 
-  <% id_usuario = current_user.id%>
-  <% posts = Post.where(:user_id => id_usuario).all%>
-  <% for proyecto in posts %>
+
       <div class="row"></div>
 
       <div class="comment animated fadeInLeft">
         <div class="comment-avatar"><img src="http://neomax.mycookroom.ru/assets/images/avatar/1.jpg" alt=""/></div>
         <div class="comment-content">
 
-          <div style="top: 5px">
-            <div class="titulo">
-              <b><%= proyecto.titulo%></b>
-            </div>
 
-          </div>
 
-          <p><%= proyecto.contenido%></p>
+          <p><%= @post.contenido%></p>
 
           <button type="button" class="btn btn-outline-info" style="font-size: 18px">
-            <%= link_to "Participar", { :controller => :posts, :action => :insertar_participante, :id => proyecto.id} %>
+            <%= link_to "Participar", { :controller => :posts, :action => :insertar_participante, :id => @post.id} %>
           </button>
 
-          <button><a href="posts/<%=proyecto.id%>">Ver proyecto</a></button>
+          <button><a href="posts/<%=@post.id%>">Ver proyecto</a></button>
           <div class="float-right" style="float: right">
-            <a href="#" class="nombre_usuario"><%= proyecto.user.username%> el <%= proyecto.created_at.to_formatted_s(:short)%></a>
+            <a href="#" class="nombre_usuario">El <%= @post.created_at.to_formatted_s(:short)%></a>
           </div>
         </div>
       </div>
-      </a>
 
-  <%end%>
+
+
 </div>
 
 

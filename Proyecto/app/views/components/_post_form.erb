@@ -5,8 +5,11 @@
     </div>
     <div class="col-sm-11">
       <%= form_for(@newPost) do |f| %>
+
           <div class="field" style="margin-left:10px;">
             <%= f.text_field :contenido, autofocus: true, class: "form-control"%>
+            <%= f.text_field :titulo, class: "form-control"%>
+
             <p type="button" style="margin-top:3px; float:right;">
               <%= f.submit "Add Post", class: "btn btn-primary" %>
             </p>

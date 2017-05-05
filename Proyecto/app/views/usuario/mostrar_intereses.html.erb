@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Slabo+60px" rel="stylesheet">
+
+</head>
+<body>
+<style>
+  body {
+    font-family: 'Slabo 27px', serif;
+    font-size: 18px;
+  }
+</style>
+<div class="container">
+  <h2>Listado de proyectos</h2>
+
+
+
+  <% for proyecto in @posts %>
+      <div class="row"></div>
+
+      <div class="comment animated fadeInLeft">
+        <div class="comment-avatar"><%= avatar_for(proyecto.user) %></div>
+        <div class="comment-content">
+
+          <div style="top: 5px">
+            <div class="titulo">
+              <b><%= proyecto.titulo%></b>
+              <b><%= proyecto.nivelDeProyecto%></b>
+            </div>
+
+          </div>
+
+          <p><%= proyecto.contenido%></p>
+
+          <% if !user_signed_in? %>
+              <button disabled type="button" class="btn btn-outline-info" style="font-size: 18px">
+                <%= link_to "Participar" %>
+              </button>
+
+              <button ><a href="posts/<%=proyecto.id%>">Ver proyecto</a></button>
+              <div class="float-right" style="float: right">
+                <a href="#" class="nombre_usuario"><%= proyecto.user.username%> el <%= proyecto.created_at.to_formatted_s(:short)%></a>
+              </div>
+          <%else%>
+              <button type="button" class="btn btn-outline-info" style="font-size: 18px">
+                <%= link_to "Participar", { :controller => :posts, :action => :insertar_participante, :id => proyecto.id} %>
+              </button>
+
+              <button type="button" class="btn btn-outline-info" style="font-size: 18px">
+                <%= link_to "Ver proyecto", { :controller => :posts, :action => :vista_post_individual, :id => proyecto.id} %>
+              </button>
+              <div class="float-right" style="float: right">
+                <a href="#" class="nombre_usuario"><%= proyecto.user.username%> el <%= proyecto.created_at.to_formatted_s(:short)%></a>
+              </div>
+          <% end %>
+
+
+
+
+        </div>
+      </div>
+      </a>
+
+  <%end%>
+</div>
+
+</body>
+</html>

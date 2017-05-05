@@ -26,12 +26,20 @@
       <div class="row"></div>
 
       <div class="comment animated fadeInLeft">
-        <div class="comment-avatar"><img src="http://neomax.mycookroom.ru/assets/images/avatar/1.jpg" alt=""/></div>
+        <div class="comment-avatar">
+
+
+          <%= avatar_for(proyecto.user)%>
+        </div>
         <div class="comment-content">
 
         <div style="top: 5px">
           <div class="titulo">
-            <b><%= proyecto.titulo%></b>
+            <b style="color: #2469ff; font-size: 20px"><%= proyecto.titulo%> - creado por <%= proyecto.user.username%></b>
+          </div>
+
+          <div>
+            <b style="color: rgba(73, 104, 128, 0.66); font-size: 12px"><%= proyecto.nivelDeProyecto%> - <%= proyecto.tiempoNecesario%> - Se necesita un grupo de <b><%= proyecto.numeroDeFreelancers%> personas</b></b>
           </div>
 
         </div>
@@ -43,19 +51,20 @@
                 <%= link_to "Participar" %>
               </button>
 
-              <button ><a href="posts/<%=proyecto.id%>">Ver proyecto</a></button>
+              <button disabled type="button" class="btn btn-outline-info" style="font-size: 18px">
+                <%= link_to "Ver proyecto" %>
+              </button>
               <div class="float-right" style="float: right">
                 <a href="#" class="nombre_usuario"><%= proyecto.user.username%> el <%= proyecto.created_at.to_formatted_s(:short)%></a>
               </div>
           <%else%>
-              <button type="button" class="btn btn-outline-info" style="font-size: 18px">
-                <%= link_to "Participar", { :controller => :posts, :action => :insertar_participante, :id => proyecto.id} %>
-              </button>
+
 
               <button type="button" class="btn btn-outline-info" style="font-size: 18px">
                 <%= link_to "Ver proyecto", { :controller => :posts, :action => :vista_post_individual, :id => proyecto.id} %>
               </button>
-              <div class="float-right" style="float: right">
+
+              <div class="float-right" style="float: right;">
                 <a href="#" class="nombre_usuario"><%= proyecto.user.username%> el <%= proyecto.created_at.to_formatted_s(:short)%></a>
               </div>
           <% end %>

@@ -1,43 +1,97 @@
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+
+<div class="ui-15">
+
+  <div class="ui-content">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 ui-padd">
+          <!-- Ui Form -->
+          <div class="ui-form">
+            <!-- Heading -->
+            <h2>Registrate</h2>
+            <!-- Form -->
+
+              <!-- UI Input -->
+              <div class="ui-input">
+                <!-- Input Box -->
+                <%= f.text_field :username, autofocus: true , class: "form-control", placeholder: "Nombre de usuario" %>
+                <label class="ui-icon"><i class="fa fa-user"></i></label>
+              </div>
+              <div class="ui-input">
+                <!-- Input Box -->
+                <%= f.text_field :nombreDeUsuario, class: "form-control", placeholder: "Nombre completo" %>
+                <label class="ui-icon"><i class="fa fa-user"></i></label>
+              </div>
+              <div class="ui-input">
+                <!-- Input Box -->
+                <%= f.email_field :email, class: "form-control", placeholder: "Correo electronico" %>
+                <label class="ui-icon"><i class="fa fa-user"></i></label>
+              </div>
+              <div class="ui-input">
+                <%= f.text_field :DescripcionUsuario, class: "form-control", placeholder: "Describete"  %>
+                <label class="ui-icon"><i class="fa fa-lock"></i></label>
+              </div>
+              <div class="ui-input">
+                <%= f.text_field :EducacionUsuario, class: "form-control", placeholder: "Describe tu educacion"  %>
+                <label class="ui-icon"><i class="fa fa-lock"></i></label>
+              </div>
+              <div class="ui-input">
+                <%= f.text_field :LogrosUsuario, class: "form-control", placeholder: "Describe tus logros"  %>
+                <label class="ui-icon"><i class="fa fa-lock"></i></label>
+              </div>
+
+
+
+
+
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 ui-padd">
+          <!-- UI Hero -->
+          <div class="ui-social">
+            <h2>Registrate</h2>
+            <div class="ui-input">
+              <%= f.text_field :ExperienciasUsuario, class: "form-control", placeholder: "Describe tus experiencias"  %>
+              <label class="ui-icon"><i class="fa fa-lock"></i></label>
+            </div>
+
+            <div class="ui-input">
+              <%= f.select(:puntoFuerte, options_for_select([['Programador BBDD','Programador BBDD'],['Marketing','Marketing'],['Maquetador Web','Maquetador Web'],['Experto SEO','Experto SEO'],['Programador Backend','Programador Backend'],['Desarrollador Android','Desarrollador Android'],['Desarrollador iOS','Desarrollador iOS'],['Desarrollador de Videojuegos','Desarrollador de Videojuegos'],['Desarrollador de Sistemas','Desarrollador de Sistemas'],['Diseñador Grafico','Diseñador Grafico'],['Web Master','Web Master']]))%>
+              <label class="ui-icon"><i class="fa fa-lock"></i></label>
+            </div>
+            <div class="ui-input">
+              <%= f.number_field :edadDelUsuario, class: "form-control", placeholder: "Edad"  %>
+              <label class="ui-icon"><i class="fa fa-lock"></i></label>
+            </div>
+
+            <div class="ui-input">
+              <%=  f.file_field :avatar, class: "form-control", placeholder: "Correo electronico"  %>
+              <label class="ui-icon"><i class="fa fa-lock"></i></label>
+            </div>
+
+            <div class="ui-input">
+              <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "Introduce tu contraseña" %>
+              <label class="ui-icon"><i class="fa fa-lock"></i></label>
+            </div>
+
+            <div class="ui-input">
+              <%= f.submit "Editar", class: "btn btn-red btn-lg btn-block" %>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+</div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

@@ -1,0 +1,127 @@
+<div class="container-fluid">
+<div class="col-md-6">
+<div class="ui-324">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12 col-xs-12">
+        <!-- Item -->
+        <div class="ui-item clearfix">
+          <!-- Left -->
+          <div class="ui-left">
+            <!-- Head -->
+            <div class="ui-head">
+              <!-- User Image -->
+              <a href="#"><%= avatar_for(@usuario) %></a>
+              <!-- User Name -->
+              <h3><%=@usuario.nombreDeUsuario %><br><i class="fa fa-circle red"></i></h3>
+
+
+
+            </div>
+            <!-- Nav tabs -->
+            <ul class="ui-nav">
+              <!-- Heading -->
+              <li class="active"><a href="#one" data-toggle="tab"><i class="fa fa-eye"></i><%=@usuario.nombreDeUsuario %></a></li>
+              <!-- Heading -->
+              <li><a href="#two" data-toggle="tab"><i class="fa fa-user"></i>Descripcion</a></li>
+              <!-- Heading -->
+              <li><a href="#three" data-toggle="tab"><i class="fa fa-envelope"></i>Educacion</a></li>
+              <!-- Heading -->
+              <li><a href="#four" data-toggle="tab"><i class="fa fa-comment"></i>Experiencias</a></li>
+            </ul>
+          </div>
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <!-- Tab Panes -->
+            <div class="tab-pane fade in active" id="one">
+              <!-- Heading -->
+              <h4><%=@usuario.nombreDeUsuario %> - <%=@usuario.puntoFuerte %> </h4>
+              <!-- Paragraph -->
+              <p><%=@usuario.DescripcionUsuario %></p>
+            </div>
+            <!-- Tab Pane -->
+            <div class="tab-pane fade" id="two">
+              <!-- Heading -->
+              <h4>Descripcion</h4>
+              <!-- Paragraph -->
+              <p> <%=@usuario.DescripcionUsuario %></p>
+            </div>
+            <!-- Tab Pane -->
+            <div class="tab-pane fade" id="three">
+              <!-- Heading -->
+              <h4>Educacion</h4>
+              <!-- Paragraph -->
+              <p><%=@usuario.EducacionUsuario %></p>
+            </div>
+            <!-- Tab Pane -->
+            <div class="tab-pane fade" id="four">
+              <!-- Heading -->
+              <h4>Experiencias</h4>
+              <!-- Paragraph -->
+              <p><%=@usuario.ExperienciasUsuario %><br><%=@usuario.LogrosUsuario %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+</div>
+<div class="col-md-6" style="margin: 30px auto;">
+
+  <% posts = @usuario.posts%>
+  <% for proyecto in posts %>
+      <div class="row"></div>
+
+      <div class="comment animated fadeInLeft">
+
+        <div class="comment-content">
+
+          <div style="top: 5px">
+            <div class="titulo">
+              <b style="color: #2469ff; font-size: 20px"><%= proyecto.titulo%> - creado por <%= proyecto.user.username%></b>
+            </div>
+
+            <div>
+              <b style="color: rgba(73, 104, 128, 0.66); font-size: 12px"><%= proyecto.nivelDeProyecto%> - <%= proyecto.tiempoNecesario%> - Se necesita un grupo de <b><%= proyecto.numeroDeFreelancers%> personas</b></b>
+            </div>
+
+          </div>
+
+          <p><%= proyecto.contenido%></p>
+
+          <% if !user_signed_in? %>
+              <button disabled type="button" class="btn btn-outline-info" style="font-size: 18px">
+                <%= link_to "Participar" %>
+              </button>
+
+              <button disabled type="button" class="btn btn-outline-info" style="font-size: 18px">
+                <%= link_to "Ver proyecto" %>
+              </button>
+              <div class="float-right" style="float: right">
+                <a href="#" class="nombre_usuario"><%= proyecto.user.username%> el <%= proyecto.created_at.to_formatted_s(:short)%></a>
+              </div>
+          <%else%>
+
+
+              <button type="button" class="btn btn-outline-info" style="font-size: 18px">
+                <%= link_to "Ver proyecto", { :controller => :posts, :action => :vista_post_individual, :id => proyecto.id} %>
+              </button>
+
+              <div class="float-right" style="float: right;">
+                <a href="#" class="nombre_usuario"><%= proyecto.user.username%> el <%= proyecto.created_at.to_formatted_s(:short)%></a>
+              </div>
+          <% end %>
+
+
+
+
+        </div>
+      </div>
+      </a>
+
+  <%end%>
+</div>
+</div>

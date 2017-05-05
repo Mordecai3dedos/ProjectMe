@@ -13,5 +13,13 @@ class UsuarioController < ApplicationController
     @posts = Post.all
     @newPost = Post.new
   end
+  def mostrar_intereses
+    @posts = Post.all.where(tipoDeProyecto: current_user.puntoFuerte)
+  end
+  def show
+    @usuario=User.find(params[:id])
+    render action: "vista_usuario_individual"
+
+  end
 
 end

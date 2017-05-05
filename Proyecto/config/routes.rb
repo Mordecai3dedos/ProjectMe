@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :posts
   root 'usuario#index'
-  get '/user/:id' => 'usuario#perfil'
+  get 'usuario/:id' => 'usuario#show'
   get 'post/:id' => 'posts#vista_post_individual'
   get "posts/new"
   get '/index_usuario' => 'usuario#index_usuario'
   get '/crear_proyecto' => 'usuario#crear_proyecto'
+  get '/mostrar_intereses' => 'usuario#mostrar_intereses'
   get '/insertar_participante' => 'posts#insertar_participante'
   get '/index' => 'usuario#index'
   post "posts" => "posts#create"

@@ -7,11 +7,25 @@
       <%= form_for(@newPost) do |f| %>
 
           <div class="field" style="margin-left:10px;">
-            <%= f.text_field :contenido, autofocus: true, class: "form-control"%>
-            <%= f.text_field :titulo, class: "form-control"%>
+            <%= f.text_field :contenido, autofocus: true, class: "form-control", placeholder: "contenido"%>
+            <%= f.text_field :titulo, class: "form-control", placeholder: "titulo"%>
+            <%= f.text_field :sugerencias, class: "form-control", placeholder: "sugerencias"%>
+            <%= f.text_field :necesidades, class: "form-control", placeholder: "necesidades"%>
+            <div class="field">
+              <%= f.select(:nivelDeProyecto, options_for_select([['Proyecto de dificultad baja','Proyecto de dificultad baja'],['Proyecto de dificultad intermedia','Proyecto de dificultad intermedia'],['Proyecto de dificultad alta','Proyecto de dificultad alta']]))%>
+            </div>
+            <div class="field">
+              <%= f.select(:tiempoNecesario, options_for_select([['Menos de 30 días','Menos de 30 días'],['Entre 30 y 90 días','Entre 30 y 90 días'],['Mas de 90 días','Mas de 90 días']]))%>
+            </div>
+            <div class="field">
+              De cuantos integrantes se formara tu grupo <%= f.number_field :numeroDeFreelancers, within: 1..5%>
+            </div>
+            <div class="field">
+              <%= f.select(:tipoDeProyecto, options_for_select([['Programador BBDD','Programador BBDD'],['Marketing','Marketing'],['Maquetador Web','Maquetador Web'],['Experto SEO','Experto SEO'],['Programador Backend','Programador Backend'],['Desarrollador Android','Desarrollador Android'],['Desarrollador iOS','Desarrollador iOS'],['Desarrollador de Videojuegos','Desarrollador de Videojuegos'],['Desarrollador de Sistemas','Desarrollador de Sistemas'],['Diseñador Grafico','Diseñador Grafico'],['Web Master','Web Master']]))%>
+            </div>
 
             <p type="button" style="margin-top:3px; float:right;">
-              <%= f.submit "Add Post", class: "btn btn-primary" %>
+             <%= f.submit "Add Post", class: "btn btn-primary" %>
             </p>
           </div>
       <% end %>

@@ -47,5 +47,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails', '~> 4.0.1'
 gem 'coffee-script', '2.3.0'
 gem 'coffee-script-source', '1.8.0'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave'
 gem "animate-rails"
+gem 'simple_form'
+gem 'mini_magick', '3.8.0'

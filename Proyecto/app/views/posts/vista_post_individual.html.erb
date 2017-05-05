@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Slabo+60px" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: 'Slabo 27px', serif;
-      font-size: 18px;
-    }
-  </style>
-</head>
-<body>
 
 <div class="container">
   <h2><%= @post.titulo%>, de <%= @post.user.username%></h2>
@@ -25,28 +7,32 @@
       <div class="row"></div>
 
       <div class="comment animated fadeInLeft">
-        <div class="comment-avatar"><img src="http://neomax.mycookroom.ru/assets/images/avatar/1.jpg" alt=""/></div>
+        <div class="comment-avatar"><%= avatar_for(@post.user) %></div>
         <div class="comment-content">
-
-
-
-          <p><%= @post.contenido%></p>
-
+         <p><%= @post.contenido%></p>
           <button type="button" class="btn btn-outline-info" style="font-size: 18px">
             <%= link_to "Participar", { :controller => :posts, :action => :insertar_participante, :id => @post.id} %>
           </button>
-
-          <button><a href="posts/<%=@post.id%>">Ver proyecto</a></button>
           <div class="float-right" style="float: right">
             <a href="#" class="nombre_usuario">El <%= @post.created_at.to_formatted_s(:short)%></a>
           </div>
         </div>
       </div>
+          <div class="col-md-6"><h2><%=@post.user.username%> necesita</h2></div>
+          <div class="col-md-6"><h2>Listado de participantes</h2>
+            <%array = @post.participantes%>
+            <%array1 =  array.split("##")%>
+            <%array1.delete_at(0)%>
+            <%array1.each do |usu|%>
+            <%usuario2 = User.find_by_username(usu)%>
+                <div class="col-md-6"><a href="../usuario/<%=usuario2.id%>"><%= usuario2.username%></a></div>
+                <div class="col-md-6">
+                  <%= usuario2.puntoFuerte%>
+                </div>
 
+                <br>
 
-
+            <%end%>
+          </div>
 </div>
 
-
-</body>
-</html>

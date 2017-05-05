@@ -1,41 +1,67 @@
-<div class="container">
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multiport: true}) do |f| %>
+    <div class="ui-15">
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
+      <div class="ui-content">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 ui-padd">
+              <!-- Ui Form -->
+              <div class="ui-form">
+                <!-- Heading -->
+                <h2>Registrate</h2>
+                <!-- Form -->
+                <form>
+                  <!-- UI Input -->
+                  <div class="ui-input">
+                    <!-- Input Box -->
+                    <%= f.text_field :nombreDeUsuario, autofocus: true , class: "form-control", placeholder: "Nombre completo" %>
+                    <label class="ui-icon"><i class="fa fa-user"></i></label>
+                  </div>
+                  <div class="ui-input">
+                    <%= f.text_field :username, class: "form-control", placeholder: "Nombre de usuario"  %>
+                    <label class="ui-icon"><i class="fa fa-lock"></i></label>
+                  </div>
+                  <div class="ui-input">
+                    <%= f.email_field :email, class: "form-control", placeholder: "Correo electronico"  %>
+                    <label class="ui-icon"><i class="fa fa-lock"></i></label>
+                  </div>
+                  <div class="ui-input">
+                    <%= f.password_field :password, class: "form-control", placeholder: "*******"  %>
+                    <label class="ui-icon"><i class="fa fa-lock"></i></label>
+                  </div>
+                  <div class="ui-input">
+                    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "*******"  %>
+                    <label class="ui-icon"><i class="fa fa-lock"></i></label>
+                  </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+                  <div class="ui-input">
+                    <%= f.submit "Sign up", class: "btn btn-red btn-lg btn-block" %>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 ui-padd">
+              <!-- UI Hero -->
+              <div class="ui-social">
+                <!-- Registre -->
+                <h2>Registrate con tus redes</h2>
+                <p>Puedes usar tus redes sociales para registrarte. Las ventajas de registrarte, a parte de disfrutar de todas las funcionalidades, recibiras notificaciones cuando haya proyectos interesantes para ti.</p>
+                <!-- Social media -->
+                <ul class="list-unstyled">
+                  <li><a href="#" class="facebook"><i class="fa fa-facebook"></i> &nbsp; Registrate con Facebook</a></li>
+                  <li><a href="#" class="twitter"><i class="fa fa-twitter"></i> &nbsp; Registrate con Twitter</a></li>
+                  <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i> &nbsp; Registrate con Google plus</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="field">
-      <%= f.label :image %><br />
-      <%= f.file_field :image %>
+      </div>
+
     </div>
-
-      <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
-</div>
